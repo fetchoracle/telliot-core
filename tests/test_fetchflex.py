@@ -1,9 +1,9 @@
 import pytest
 from brownie import accounts
-from brownie import TellorFlex
+from brownie import FetchFlex
 
 from telliot_core.apps.core import TelliotCore
-from telliot_core.tellor.tellorflex.oracle import TellorFlexOracleContract
+from telliot_core.fetch.fetchflex.oracle import FetchFlexOracleContract
 from telliot_core.utils.response import ResponseStatus
 from telliot_core.utils.timestamp import TimeStamp
 
@@ -12,9 +12,9 @@ from telliot_core.utils.timestamp import TimeStamp
 
 @pytest.fixture(scope="module")
 def mock_flex_contract():
-    """Mock the TellorFlex contract"""
+    """Mock the FetchFlex contract"""
     return accounts[0].deploy(
-        TellorFlex,
+        FetchFlex,
         "0x0000000000000000000000000000000000000123",
         "0x0000000000000000000000000000000000000456",
         42e18,
@@ -24,11 +24,11 @@ def mock_flex_contract():
 @pytest.mark.skip(reason="no way of currently testing external chain dependent tests")
 @pytest.mark.asyncio
 async def test_main(mumbai_test_cfg, mock_flex_contract):
-    """Test the TellorFlex contract"""
+    """Test the FetchFlex contract"""
     async with TelliotCore(config=mumbai_test_cfg) as core:
         account = core.get_account()
         # Override contract addresses with locally deployed mock contract addresses
-        oracle = TellorFlexOracleContract(core.endpoint, account)
+        oracle = FetchFlexOracleContract(core.endpoint, account)
         oracle.address = mock_flex_contract.address
         oracle.connect()
 

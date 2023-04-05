@@ -1,7 +1,7 @@
 // SPDX-Licence-Identifier: MIT
 pragma solidity ^0.8.10;
 
-contract TellorXMasterMock {
+contract FetchXMasterMock {
 
     struct Dispute {
         bytes32 hash;

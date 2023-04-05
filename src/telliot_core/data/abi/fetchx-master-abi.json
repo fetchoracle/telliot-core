@@ -1121,7 +1121,7 @@
       },
       {
         "internalType": "address",
-        "name": "_oTellor",
+        "name": "_oFetch",
         "type": "address"
       }
     ],
@@ -1134,11 +1134,11 @@
       {
         "indexed": false,
         "internalType": "address",
-        "name": "_newTellor",
+        "name": "_newFetch",
         "type": "address"
       }
     ],
-    "name": "NewTellorAddress",
+    "name": "NewFetchAddress",
     "type": "event"
   },
   {
@@ -1198,7 +1198,7 @@
         "type": "address"
       }
     ],
-    "name": "changeTellorContract",
+    "name": "changeFetchContract",
     "outputs": [],
     "stateMutability": "nonpayable",
     "type": "function"

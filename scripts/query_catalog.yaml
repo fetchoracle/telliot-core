@@ -31,8 +31,8 @@
   active: true
   abi: '[{"name": "legacy_id", "type": "uint256"}]'
 - type: CatalogEntry
-  tag: trb-usd-legacy
-  title: Legacy TRB/USD spot price
+  tag: fetch-usd-legacy
+  title: Legacy FETCH/USD spot price
   query_type: LegacyRequest
   descriptor: '{"type":"LegacyRequest","legacy_id":50}'
   query_id: '0x0000000000000000000000000000000000000000000000000000000000000032'

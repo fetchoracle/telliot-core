@@ -14,16 +14,16 @@ from telliot_core.utils.response import ResponseStatus
 logger = logging.getLogger(__name__)
 
 
-class Tellor360AutopayContract(Contract):
-    """Tellor360 Autopay contract getter"""
+class Fetch360AutopayContract(Contract):
+    """Fetch360 Autopay contract getter"""
 
     def __init__(self, node: RPCEndpoint, account: Optional[ChainedAccount] = None):
         chain_id = node.chain_id
         assert chain_id is not None
 
-        contract_info = contract_directory.find(chain_id=chain_id, name="tellor360-autopay")
+        contract_info = contract_directory.find(chain_id=chain_id, name="fetch360-autopay")
         if not contract_info:
-            raise Exception(f"Tellor360 autopay contract not found on chain_id {chain_id}")
+            raise Exception(f"Fetch360 autopay contract not found on chain_id {chain_id}")
         contract_abi = contract_info[0].get_abi(chain_id=chain_id)
 
         super().__init__(

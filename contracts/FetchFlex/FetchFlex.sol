@@ -4,14 +4,14 @@ pragma solidity 0.8.3;
 import "../../interfaces/IERC20.sol";
 
 /**
- @author Tellor Inc.
- @title TellorFlex
- @dev This is a streamlined Tellor oracle system which handles staking, reporting,
+ @author Fetch Inc.
+ @title FetchFlex
+ @dev This is a streamlined Fetch oracle system which handles staking, reporting,
  * slashing, and user data getters in one contract. This contract is controlled
  * by a single address known as 'governance', which could be an externally owned
  * account or a contract, allowing for a flexible, modular design.
 */
-contract TellorFlex {
+contract FetchFlex {
     IERC20 public token;
     address public governance;
     uint256 public stakeAmount; //amount required to be a staker

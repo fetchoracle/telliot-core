@@ -14,14 +14,14 @@ from telliot_core.utils.timestamp import TimeStamp
 logger = logging.getLogger(__name__)
 
 
-class Tellor360OracleContract(Contract):
+class Fetch360OracleContract(Contract):
     def __init__(self, node: RPCEndpoint, account: Optional[ChainedAccount] = None):
         chain_id = node.chain_id
         assert chain_id is not None
 
-        contract_info = contract_directory.find(chain_id=chain_id, name="tellor360-oracle")
+        contract_info = contract_directory.find(chain_id=chain_id, name="fetch360-oracle")
         if not contract_info:
-            raise Exception(f"Tellor360 oracle contract not found on chain_id {chain_id}")
+            raise Exception(f"Fetch360 oracle contract not found on chain_id {chain_id}")
 
         contract_abi = contract_info[0].get_abi(chain_id=chain_id)
 

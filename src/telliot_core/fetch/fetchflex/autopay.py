@@ -14,14 +14,14 @@ from telliot_core.utils.response import ResponseStatus
 logger = logging.getLogger(__name__)
 
 
-class TellorFlexAutopayContract(Contract):
+class FetchFlexAutopayContract(Contract):
     def __init__(self, node: RPCEndpoint, account: Optional[ChainedAccount] = None):
         chain_id = node.chain_id
         assert chain_id is not None
 
-        contract_info = contract_directory.find(chain_id=chain_id, name="tellorflex-autopay")[0]
+        contract_info = contract_directory.find(chain_id=chain_id, name="fetchflex-autopay")[0]
         if not contract_info:
-            raise Exception(f"Tellorflex autopay contract not found on chain_id {chain_id}")
+            raise Exception(f"Fetchflex autopay contract not found on chain_id {chain_id}")
         contract_abi = contract_info.get_abi(chain_id=chain_id)
 
         super().__init__(
@@ -52,7 +52,7 @@ if __name__ == "__main__":
     async def hello_world() -> None:
         async with TelliotCore(chain_id=137) as core:
 
-            flex = core.get_tellorflex_contracts()
+            flex = core.get_fetchflex_contracts()
 
             t = await flex.autopay.get_current_tip(query_id=b"")
 

@@ -265,8 +265,8 @@ if __name__ == "__main__":
 
     async def main() -> None:
         async with TelliotCore() as core:
-            master_info = core.config.directory.find(name="tellorx-master", chain_id=core.config.main.chain_id)[0]
-            oracle_info = core.config.directory.find(name="tellorx-oracle", chain_id=core.config.main.chain_id)[0]
+            master_info = core.config.directory.find(name="fetchx-master", chain_id=core.config.main.chain_id)[0]
+            oracle_info = core.config.directory.find(name="fetchx-oracle", chain_id=core.config.main.chain_id)[0]
 
             # Subscribe to blocks
             assert core.listener  # typing

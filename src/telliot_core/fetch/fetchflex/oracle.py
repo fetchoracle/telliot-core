@@ -15,14 +15,14 @@ from telliot_core.utils.timestamp import TimeStamp
 logger = logging.getLogger(__name__)
 
 
-class TellorFlexOracleContract(Contract):
+class FetchFlexOracleContract(Contract):
     def __init__(self, node: RPCEndpoint, account: Optional[ChainedAccount] = None):
         chain_id = node.chain_id
         assert chain_id is not None
 
-        entries = contract_directory.find(chain_id=chain_id, name="tellorflex-oracle")
+        entries = contract_directory.find(chain_id=chain_id, name="fetchflex-oracle")
         if not entries:
-            raise Exception(f"Tellorflex oracle contract not found on chain_id {chain_id}")
+            raise Exception(f"Fetchflex oracle contract not found on chain_id {chain_id}")
         contract_info = entries[0]
 
         contract_abi = contract_info.get_abi(chain_id=chain_id)
@@ -41,7 +41,7 @@ class TellorFlexOracleContract(Contract):
         if status.ok:
             return str(governance_address)
         else:
-            logger.error("Error reading TellorFlexOracleContract")
+            logger.error("Error reading FetchFlexOracleContract")
             logger.error(status)
             return None
 
@@ -52,7 +52,7 @@ class TellorFlexOracleContract(Contract):
         if status.ok:
             return int(lock)
         else:
-            logger.error("Error reading TellorFlexOracleContract")
+            logger.error("Error reading FetchFlexOracleContract")
             logger.error(status)
             return None
 
@@ -61,10 +61,10 @@ class TellorFlexOracleContract(Contract):
         stake, status = await self.read("getStakeAmount")
 
         if status.ok:
-            stake_in_trb = int(stake) / 1.0e18
-            return stake_in_trb
+            stake_in_fetch = int(stake) / 1.0e18
+            return stake_in_fetch
         else:
-            logger.error("Error reading TellorFlexOracleContract")
+            logger.error("Error reading FetchFlexOracleContract")
             logger.error(status)
             return None
 
@@ -84,7 +84,7 @@ class TellorFlexOracleContract(Contract):
         if status.ok:
             return str(token_address)
         else:
-            logger.error("Error reading TellorFlexOracleContract")
+            logger.error("Error reading FetchFlexOracleContract")
             logger.error(status)
             return None
 
@@ -93,10 +93,10 @@ class TellorFlexOracleContract(Contract):
         total_stake, status = await self.read("getTotalStakeAmount")
 
         if status.ok:
-            total_stake_trb = int(total_stake) / 1.0e18
-            return total_stake_trb
+            total_stake_fetch = int(total_stake) / 1.0e18
+            return total_stake_fetch
         else:
-            logger.error("Error reading TellorFlexOracleContract")
+            logger.error("Error reading FetchFlexOracleContract")
             logger.error(status)
             return None
 
@@ -118,10 +118,10 @@ if __name__ == "__main__":
     async def hello_world() -> None:
         async with TelliotCore(chain_id=137) as core:
 
-            flex = core.get_tellorflex_contracts()
+            flex = core.get_fetchflex_contracts()
 
             t = await flex.oracle.get_time_of_last_new_value()
 
-            print(f"Hello world!  Data was just submitted to TellorFlex on: {t}")
+            print(f"Hello world!  Data was just submitted to FetchFlex on: {t}")
 
     asyncio.run(hello_world())

@@ -71,13 +71,13 @@ from telliot_core.apps.telliot_config import TelliotConfig
 
 
 def local_node_cfg(chain_id: int):
-    """Return a test telliot configuration for use of tellorFlex contracts. Overrides
+    """Return a test telliot configuration for use of fetchFlex contracts. Overrides
     the default Web3 provider with a local Ganache endpoint.
     """
 
     cfg = TelliotConfig()
 
-    # Use a chain_id with TellorFlex contracts deployed
+    # Use a chain_id with FetchFlex contracts deployed
     cfg.main.chain_id = chain_id
 
     endpt = cfg.get_endpoint()
@@ -95,7 +95,7 @@ def local_node_cfg(chain_id: int):
         key = os.getenv("PRIVATE_KEY", None)
         if key:
             ChainedAccount.add(
-                "git-tellorflex-test-key",
+                "git-fetchflex-test-key",
                 chains=chain_id,
                 key=os.environ["PRIVATE_KEY"],
                 password="",
