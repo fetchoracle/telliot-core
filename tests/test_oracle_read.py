@@ -12,7 +12,7 @@ def tellorx_oracle_mock_contract():
     """Reusable fixture for TellorXOracleMock contract"""
     return accounts[0].deploy(TellorXOracleMock)
 
-
+@pytest.mark.skip(reason="no way of currently testing external chain dependent tests")
 @pytest.mark.asyncio
 async def test_getReportTimestampByIndex(rinkeby_test_cfg, tellorx_oracle_mock_contract):
     """Test the TellorxOracleContract getReportTimestampByIndex method"""
@@ -30,7 +30,7 @@ async def test_getReportTimestampByIndex(rinkeby_test_cfg, tellorx_oracle_mock_c
         print(timestamp)
         assert timestamp == 1234
 
-
+@pytest.mark.skip(reason="no way of currently testing external chain dependent tests")
 @pytest.mark.asyncio
 async def test_getReportingLock(rinkeby_test_cfg, tellorx_oracle_mock_contract):
     """Test the TellorxOracleContract.getReportingLock() method"""
@@ -45,7 +45,7 @@ async def test_getReportingLock(rinkeby_test_cfg, tellorx_oracle_mock_contract):
         assert result == 12
         print(result)
 
-
+@pytest.mark.skip(reason="no way of currently testing external chain dependent tests")
 @pytest.mark.asyncio
 async def test_gettimebasedreward(rinkeby_test_cfg, tellorx_oracle_mock_contract):
     """Test the TellorxOracleContract.getTimeBasedReward() method"""
@@ -59,7 +59,7 @@ async def test_gettimebasedreward(rinkeby_test_cfg, tellorx_oracle_mock_contract
         assert status.ok
         assert result == 1
 
-
+@pytest.mark.skip(reason="no way of currently testing external chain dependent tests")
 @pytest.mark.asyncio
 async def test_getCurrentReward(rinkeby_test_cfg, tellorx_oracle_mock_contract):
     """Test the TellorX oracle contract"""
@@ -76,7 +76,7 @@ async def test_getCurrentReward(rinkeby_test_cfg, tellorx_oracle_mock_contract):
         assert tips == 1
         assert reward == 2
 
-
+@pytest.mark.skip(reason="no way of currently testing external chain dependent tests")
 @pytest.mark.asyncio
 async def test_getTimestampCountById(rinkeby_test_cfg, tellorx_oracle_mock_contract):
     """Test the TellorX oracle contract"""
@@ -92,7 +92,7 @@ async def test_getTimestampCountById(rinkeby_test_cfg, tellorx_oracle_mock_contr
         assert status.ok
         assert result == 30
 
-
+@pytest.mark.skip(reason="no way of currently testing external chain dependent tests")
 @pytest.mark.asyncio
 async def test_getTimeOfLastNewValue(rinkeby_test_cfg, tellorx_oracle_mock_contract):
     """Test the TellorX oracle contract"""
@@ -108,7 +108,7 @@ async def test_getTimeOfLastNewValue(rinkeby_test_cfg, tellorx_oracle_mock_contr
         assert isinstance(result, TimeStamp)
         assert result.ts == 123456789
 
-
+@pytest.mark.skip(reason="no way of currently testing external chain dependent tests")
 @pytest.mark.asyncio
 async def test_getTipsById(rinkeby_test_cfg, tellorx_oracle_mock_contract):
     """Test the TellorX oracle contract"""

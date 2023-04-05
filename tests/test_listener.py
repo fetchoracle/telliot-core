@@ -14,7 +14,7 @@ async def block_printer(msg) -> None:
     print(f"handled block subscription: {sub_id}")
     print(block)
 
-
+@pytest.mark.skip(reason="no way of currently testing external chain dependent tests")
 @pytest.mark.asyncio
 async def test_subscribe_new_blocks(caplog, mumbai_test_cfg):
     """Test the block listener"""

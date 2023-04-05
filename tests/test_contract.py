@@ -6,7 +6,7 @@ import web3
 
 from telliot_core.apps.core import TelliotCore
 
-
+@pytest.mark.skip(reason="no way of currently testing external chain dependent tests")
 @pytest.mark.asyncio
 async def test_connect_to_tellor(rinkeby_test_cfg):
     """Contract object should access Tellor functions"""
@@ -18,7 +18,7 @@ async def test_connect_to_tellor(rinkeby_test_cfg):
             web3.contract.ContractFunction,
         )
 
-
+@pytest.mark.skip(reason="no way of currently testing external chain dependent tests")
 @pytest.mark.asyncio
 async def test_mixed_gas_inputs(rinkeby_test_cfg):
     """Contract.write() should refuse a combination of

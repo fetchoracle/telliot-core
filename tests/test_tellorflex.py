@@ -21,7 +21,7 @@ def mock_flex_contract():
         60 * 60,
     )
 
-
+@pytest.mark.skip(reason="no way of currently testing external chain dependent tests")
 @pytest.mark.asyncio
 async def test_main(mumbai_test_cfg, mock_flex_contract):
     """Test the TellorFlex contract"""

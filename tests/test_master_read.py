@@ -13,7 +13,7 @@ def tellorx_master_mock_contract():
     """Mock the TellorXMaster contract"""
     return accounts[0].deploy(TellorXMasterMock)
 
-
+@pytest.mark.skip(reason="no way of currently testing external chain dependent tests")
 @pytest.mark.asyncio
 async def test_get_staker_info(rinkeby_test_cfg, tellorx_master_mock_contract):
     """Test the TellorXMaster contract"""
