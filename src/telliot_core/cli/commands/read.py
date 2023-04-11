@@ -10,7 +10,7 @@ from telliot_core.utils.timestamp import TimeStamp
 
 @click.group()
 def read() -> None:
-    """Read on-chain TellorX contracts."""
+    """Read on-chain FetchX contracts."""
     pass
 
 
@@ -19,7 +19,7 @@ def read() -> None:
 # ------------------------------------------------------------------
 @read.group()
 def oracle() -> None:
-    """Read from the TellorX oracle contract."""
+    """Read from the FetchX oracle contract."""
     pass
 
 
@@ -29,13 +29,13 @@ def oracle() -> None:
 async def gettimebasedreward(ctx: click.Context) -> None:
     async with cli_core(ctx) as core:
 
-        tellorx = core.get_tellorx_contracts()
-        result, status = await tellorx.oracle.getTimeBasedReward()
+        fetchx = core.get_fetchx_contracts()
+        result, status = await fetchx.oracle.getTimeBasedReward()
 
         if not status.ok:
             print(status)
         else:
-            print(f"{result} TRB")
+            print(f"{result} FETCH")
 
 
 @oracle.command()
@@ -45,8 +45,8 @@ async def gettimebasedreward(ctx: click.Context) -> None:
 async def getreporterlasttimestamp(ctx: click.Context, address: str) -> None:
     async with cli_core(ctx) as core:
 
-        tellorx = core.get_tellorx_contracts()
-        ts, status = await tellorx.oracle.getReporterLastTimestamp(address)
+        fetchx = core.get_fetchx_contracts()
+        ts, status = await fetchx.oracle.getReporterLastTimestamp(address)
 
         if not status.ok:
             print(status)
@@ -59,7 +59,7 @@ async def getreporterlasttimestamp(ctx: click.Context, address: str) -> None:
 # ------------------------------------------------------------------
 @read.group()
 def master() -> None:
-    """Read from the TellorX master contract."""
+    """Read from the FetchX master contract."""
     pass
 
 
@@ -69,8 +69,8 @@ async def get_staker_info(ctx: click.Context, address: str) -> Tuple[str, TimeSt
         if not address:
             address = core.get_account().address
 
-        tellorx = core.get_tellorx_contracts()
-        (staker_status, date_staked), status = await tellorx.master.getStakerInfo(address=address)
+        fetchx = core.get_fetchx_contracts()
+        (staker_status, date_staked), status = await fetchx.master.getStakerInfo(address=address)
         return staker_status, date_staked
 
 
@@ -95,8 +95,8 @@ async def disputesbyid(ctx: click.Context, dispute_id: int) -> None:
     """Get disputes by ID."""
 
     async with cli_core(ctx) as core:
-        tellorx = core.get_tellorx_contracts()
-        result, read_response = await tellorx.master.disputesById(dispute_id)
+        fetchx = core.get_fetchx_contracts()
+        result, read_response = await fetchx.master.disputesById(dispute_id)
 
     if not read_response.ok:
         click.echo(read_response)

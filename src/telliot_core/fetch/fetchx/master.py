@@ -7,7 +7,7 @@ from eth_utils import to_checksum_address
 from telliot_core.contract.contract import Contract
 from telliot_core.directory import contract_directory as directory
 from telliot_core.model.endpoints import RPCEndpoint
-from telliot_core.tellor.tellorx.oracle import ReadRespType
+from telliot_core.fetch.fetchx.oracle import ReadRespType
 from telliot_core.utils.timestamp import TimeStamp
 
 account_status_map = {
@@ -32,15 +32,15 @@ class DisputeReport:
     proposedForkAddress: str
 
 
-class TellorxMasterContract(Contract):
+class FetchxMasterContract(Contract):
     def __init__(self, node: RPCEndpoint, account: Optional[ChainedAccount] = None):
 
         chain_id = node.chain_id
         assert chain_id is not None
 
-        entries = directory.find(name="tellorx-master", chain_id=chain_id)
+        entries = directory.find(name="fetchx-master", chain_id=chain_id)
         if not entries:
-            raise Exception(f"TellorX master contract not found on chain_id {chain_id}")
+            raise Exception(f"FetchX master contract not found on chain_id {chain_id}")
         contract_info = entries[0]
         contract_abi = contract_info.get_abi(chain_id=chain_id)
 

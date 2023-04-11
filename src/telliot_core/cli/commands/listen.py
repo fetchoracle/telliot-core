@@ -12,7 +12,7 @@ from telliot_core.directory import contract_directory
 @click.pass_context
 @async_run
 async def listen(ctx: click.Context) -> None:
-    """Listen for Tellor network events."""
+    """Listen for Fetch network events."""
 
     async with cli_core(ctx) as core:
 
@@ -20,11 +20,11 @@ async def listen(ctx: click.Context) -> None:
 
         if chain_id in [1, 4]:
 
-            master = contract_directory.find(name="tellorx-master", chain_id=chain_id)[0]
-            oracle = contract_directory.find(name="tellorx-oracle", chain_id=chain_id)[0]
+            master = contract_directory.find(name="fetchx-master", chain_id=chain_id)[0]
+            oracle = contract_directory.find(name="fetchx-oracle", chain_id=chain_id)[0]
 
         # elif chain_id in [137, 80001]:
-        #     oracle = contract_directory.find(name='tellorflex-oracle', chain_id=chain_id)[0]
+        #     oracle = contract_directory.find(name='fetchflex-oracle', chain_id=chain_id)[0]
 
         else:
             click.echo(f"Listening not supported on network: {chain_id}")

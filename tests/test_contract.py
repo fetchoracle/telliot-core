@@ -6,19 +6,19 @@ import web3
 
 from telliot_core.apps.core import TelliotCore
 
-
+@pytest.mark.skip(reason="no way of currently testing external chain dependent tests")
 @pytest.mark.asyncio
-async def test_connect_to_tellor(rinkeby_test_cfg):
-    """Contract object should access Tellor functions"""
+async def test_connect_to_fetch(rinkeby_test_cfg):
+    """Contract object should access Fetch functions"""
     async with TelliotCore(config=rinkeby_test_cfg) as core:
-        tellorx = core.get_tellorx_contracts()
-        assert len(tellorx.master.contract.all_functions()) > 0
+        fetchx = core.get_fetchx_contracts()
+        assert len(fetchx.master.contract.all_functions()) > 0
         assert isinstance(
-            tellorx.master.contract.all_functions()[0],
+            fetchx.master.contract.all_functions()[0],
             web3.contract.ContractFunction,
         )
 
-
+@pytest.mark.skip(reason="no way of currently testing external chain dependent tests")
 @pytest.mark.asyncio
 async def test_mixed_gas_inputs(rinkeby_test_cfg):
     """Contract.write() should refuse a combination of
@@ -27,9 +27,9 @@ async def test_mixed_gas_inputs(rinkeby_test_cfg):
     with pytest.raises(ValueError):
 
         async with TelliotCore(config=rinkeby_test_cfg) as core:
-            tellorx = core.get_tellorx_contracts()
+            fetchx = core.get_fetchx_contracts()
 
-            tx_receipt, status = await tellorx.oracle.write(
+            tx_receipt, status = await fetchx.oracle.write(
                 func_name="transfer",
                 _to="0xF90cd1D6C1da49CE2cF5C39f82999D7145aa66aD",
                 _amount=1,

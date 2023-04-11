@@ -6,7 +6,7 @@
 4. Add chain ID & gas/fee info retrieval to `telliot_core.gas.legacy_gas.gas_station`.
 5. Add endpoint info to `telliot_core.model.endpoints.default_endpoint_list`.
 6. Add deployed oracle contract and autopay info to `telliot_core.data.contract_directory.json`:
-    - Add address for `tellor360-autopay`.
-    - Add address for `tellor360-oracle`.
-    - If using testnet, add a tellor playground address for `trb-token`. If using mainnet, add the address of the bridged TRB token contract.
-7. Follow steps to support a new chain in [telliot-feeds](https://tellor-io.github.io/telliot-feeds/add-chain/).
+    - Add address for `fetch360-autopay`.
+    - Add address for `fetch360-oracle`.
+    - If using testnet, add a fetch playground address for `fetch-token`. If using mainnet, add the address of the bridged FETCH token contract.
+7. Follow steps to support a new chain in [telliot-feeds](https://fetch-io.github.io/telliot-feeds/add-chain/).

@@ -17,13 +17,13 @@ from telliot_core.contract.listener import Listener
 from telliot_core.directory import contract_directory
 from telliot_core.logs import init_logging
 from telliot_core.model.endpoints import RPCEndpoint
-from telliot_core.tellor.tellor360.autopay import Tellor360AutopayContract
-from telliot_core.tellor.tellor360.oracle import Tellor360OracleContract
-from telliot_core.tellor.tellorflex.autopay import TellorFlexAutopayContract
-from telliot_core.tellor.tellorflex.oracle import TellorFlexOracleContract
-from telliot_core.tellor.tellorflex.token import TokenContract
-from telliot_core.tellor.tellorx.master import TellorxMasterContract
-from telliot_core.tellor.tellorx.oracle import TellorxOracleContract
+from telliot_core.fetch.fetch360.autopay import Fetch360AutopayContract
+from telliot_core.fetch.fetch360.oracle import Fetch360OracleContract
+from telliot_core.fetch.fetchflex.autopay import FetchFlexAutopayContract
+from telliot_core.fetch.fetchflex.oracle import FetchFlexOracleContract
+from telliot_core.fetch.fetchflex.token import TokenContract
+from telliot_core.fetch.fetchx.master import FetchxMasterContract
+from telliot_core.fetch.fetchx.oracle import FetchxOracleContract
 from telliot_core.utils.home import telliot_homedir
 from telliot_core.utils.versions import show_telliot_versions
 
@@ -41,7 +41,7 @@ NETWORKS = {
     1666700000: "harmony-testnet",
     421611: "arbitrum-rinkeby",
     421613: "arbitrum-goerli",
-    941: "pulsechain-testnet",
+    942: "PulseChain Testnet-V3",
     42161: "arbitrum",
     1337: "brownie-local-network",
     10200: "chiado-testnet",
@@ -59,26 +59,26 @@ LOGLEVEL_MAP = {
 
 
 @dataclass
-class TellorxContractSet:
-    master: TellorxMasterContract
-    oracle: TellorxOracleContract
+class FetchxContractSet:
+    master: FetchxMasterContract
+    oracle: FetchxOracleContract
     governance: Contract
     treasury: Contract
 
 
 @dataclass
-class TellorFlexContractSet:
-    oracle: TellorFlexOracleContract
-    autopay: TellorFlexAutopayContract
+class FetchFlexContractSet:
+    oracle: FetchFlexOracleContract
+    autopay: FetchFlexAutopayContract
     token: TokenContract
 
 
 @dataclass
-class Tellor360ContractSet:
-    """Tellor360 contract set"""
+class Fetch360ContractSet:
+    """Fetch360 contract set"""
 
-    oracle: Tellor360OracleContract
-    autopay: Tellor360AutopayContract
+    oracle: Fetch360OracleContract
+    autopay: Fetch360AutopayContract
     token: TokenContract
 
 
@@ -96,69 +96,69 @@ class TelliotCore:
     config = property(lambda self: self._config)
     _config: TelliotConfig
 
-    def get_tellorflex_contracts(self) -> TellorFlexContractSet:
-        """Get or create tellorflex contracts."""
-        if not self._tellorflex:
+    def get_fetchflex_contracts(self) -> FetchFlexContractSet:
+        """Get or create fetchflex contracts."""
+        if not self._fetchflex:
             account = self.get_account()
 
-            oracle = TellorFlexOracleContract(node=self.endpoint, account=account)
+            oracle = FetchFlexOracleContract(node=self.endpoint, account=account)
             oracle.connect()
 
             token = TokenContract(node=self.endpoint, account=account)
             token.connect()
 
-            autopay = TellorFlexAutopayContract(node=self.endpoint, account=account)
+            autopay = FetchFlexAutopayContract(node=self.endpoint, account=account)
             autopay.connect()
 
-            self._tellorflex = TellorFlexContractSet(oracle=oracle, token=token, autopay=autopay)
+            self._fetchflex = FetchFlexContractSet(oracle=oracle, token=token, autopay=autopay)
 
-        return self._tellorflex
+        return self._fetchflex
 
-    _tellorflex: Optional[TellorFlexContractSet]
+    _fetchflex: Optional[FetchFlexContractSet]
 
-    def get_tellorx_contracts(self) -> TellorxContractSet:
-        """Get or create TellorX contracts"""
+    def get_fetchx_contracts(self) -> FetchxContractSet:
+        """Get or create FetchX contracts"""
 
-        if not self._tellorx:
+        if not self._fetchx:
             account = self.get_account()
 
-            master = TellorxMasterContract(node=self.endpoint, account=account)
+            master = FetchxMasterContract(node=self.endpoint, account=account)
             master.connect()
 
-            oracle = TellorxOracleContract(node=self.endpoint, account=account)
+            oracle = FetchxOracleContract(node=self.endpoint, account=account)
             oracle.connect()
 
-            self._tellorx = TellorxContractSet(
+            self._fetchx = FetchxContractSet(
                 master=master,
                 oracle=oracle,
-                governance=self.get_contract(name="tellorx-governance"),
-                treasury=self.get_contract(name="tellorx-treasury"),
+                governance=self.get_contract(name="fetchx-governance"),
+                treasury=self.get_contract(name="fetchx-treasury"),
             )
 
-        return self._tellorx
+        return self._fetchx
 
-    _tellorx: Optional[TellorxContractSet]
+    _fetchx: Optional[FetchxContractSet]
 
-    def get_tellor360_contracts(self) -> Tellor360ContractSet:
-        """Get or create Tellor360 contracts"""
+    def get_fetch360_contracts(self) -> Fetch360ContractSet:
+        """Get or create Fetch360 contracts"""
 
-        if not self._tellor360:
+        if not self._fetch360:
             account = self.get_account()
 
-            oracle = Tellor360OracleContract(node=self.endpoint, account=account)
+            oracle = Fetch360OracleContract(node=self.endpoint, account=account)
             oracle.connect()
 
-            autopay = Tellor360AutopayContract(node=self.endpoint, account=account)
+            autopay = Fetch360AutopayContract(node=self.endpoint, account=account)
             autopay.connect()
 
             token = TokenContract(node=self.endpoint, account=account)
             token.connect()
 
-            self._tellor360 = Tellor360ContractSet(oracle=oracle, autopay=autopay, token=token)
+            self._fetch360 = Fetch360ContractSet(oracle=oracle, autopay=autopay, token=token)
 
-        return self._tellor360
+        return self._fetch360
 
-    _tellor360: Optional[Tellor360ContractSet]
+    _fetch360: Optional[Fetch360ContractSet]
 
     #: User-specified account name
     account_name = property(lambda self: self._account_name)
@@ -212,9 +212,9 @@ class TelliotCore:
         self._config = config or TelliotConfig(config_dir=self.homedir)
         self._endpoint = None
         self._listener = None
-        self._tellorx = None
-        self._tellorflex = None
-        self._tellor360 = None
+        self._fetchx = None
+        self._fetchflex = None
+        self._fetch360 = None
 
         loglevel = LOGLEVEL_MAP[self._config.main.loglevel]
         self._log = init_logging(loglevel)
@@ -235,14 +235,14 @@ class TelliotCore:
         self._account_name = account_name
 
     async def startup(self) -> None:
-        """Connect to the tellorX network"""
+        """Connect to the fetchX network"""
         assert self.config
 
         chain_id = self.config.main.chain_id
 
         account = self.get_account()
         if account is None:
-            raise RuntimeError("Cannot start tellor-core application.  No account found.")
+            raise RuntimeError("Cannot start fetch-core application.  No account found.")
 
         await self._session_manager.open()
 

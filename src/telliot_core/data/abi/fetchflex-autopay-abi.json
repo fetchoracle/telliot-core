@@ -3,7 +3,7 @@
        "inputs":[
           {
              "internalType":"address payable",
-             "name":"_tellor",
+             "name":"_fetch",
              "type":"address"
           },
           {
@@ -702,7 +702,7 @@
        "name":"master",
        "outputs":[
           {
-             "internalType":"contract ITellor",
+             "internalType":"contract IFetch",
              "name":"",
              "type":"address"
           }
@@ -855,10 +855,10 @@
        "inputs":[
 
        ],
-       "name":"tellor",
+       "name":"fetch",
        "outputs":[
           {
-             "internalType":"contract ITellor",
+             "internalType":"contract IFetch",
              "name":"",
              "type":"address"
           }

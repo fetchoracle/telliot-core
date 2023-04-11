@@ -1,30 +1,30 @@
 import pytest
 from brownie import accounts
-from brownie import TellorXMasterMock
+from brownie import FetchXMasterMock
 
 from telliot_core.apps.core import TelliotCore
-from telliot_core.tellor.tellorx.master import account_status_map
-from telliot_core.tellor.tellorx.master import TellorxMasterContract
+from telliot_core.fetch.fetchx.master import account_status_map
+from telliot_core.fetch.fetchx.master import FetchxMasterContract
 from telliot_core.utils.timestamp import TimeStamp
 
 
 @pytest.fixture
-def tellorx_master_mock_contract():
-    """Mock the TellorXMaster contract"""
-    return accounts[0].deploy(TellorXMasterMock)
+def fetchx_master_mock_contract():
+    """Mock the FetchXMaster contract"""
+    return accounts[0].deploy(FetchXMasterMock)
 
-
+@pytest.mark.skip(reason="no way of currently testing external chain dependent tests")
 @pytest.mark.asyncio
-async def test_get_staker_info(rinkeby_test_cfg, tellorx_master_mock_contract):
-    """Test the TellorXMaster contract"""
+async def test_get_staker_info(rinkeby_test_cfg, fetchx_master_mock_contract):
+    """Test the FetchXMaster contract"""
 
     async with TelliotCore(config=rinkeby_test_cfg) as core:
         account = core.get_account()
-        tellorx = TellorxMasterContract(core.endpoint, account)
-        tellorx.address = tellorx_master_mock_contract.address
-        tellorx.connect()
+        fetchx = FetchxMasterContract(core.endpoint, account)
+        fetchx.address = fetchx_master_mock_contract.address
+        fetchx.connect()
 
-        result, status = await tellorx.getStakerInfo(tellorx.address)
+        result, status = await fetchx.getStakerInfo(fetchx.address)
 
         assert status.ok
         assert len(result) == 2

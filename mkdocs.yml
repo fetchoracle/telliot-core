@@ -2,23 +2,23 @@ site_name: Telliot Core Documentation
 
 # Project information
 site_name: Telliot Core Documentation
-site_url: https://tellor-io.github.io/telliot-core/
-site_author: Tellor Development Community
+site_url: https://fetch-io.github.io/telliot-core/
+site_author: Fetch Development Community
 site_description: >-
-  Telliot is a Python framework for interacting with the decentralized TellorX network
+  Telliot is a Python framework for interacting with the decentralized FetchX network
 
 # Repository
-repo_name: tellor-io/telliot-core
-repo_url: https://github.com/tellor-io/telliot-core
+repo_name: fetch-io/telliot-core
+repo_url: https://github.com/fetch-io/telliot-core
 edit_uri: ""
 
 # Copyright
-copyright: Copyright (c) 2020-, Tellor Development Community
+copyright: Copyright (c) 2020-, Fetch Development Community
 
 
 theme:
   name: material
-  logo: assets/tellor_swoosh.png
+  logo: assets/fetch_swoosh.png
   favicon: assets/favicon-32x32.png
   features:
     # - navigation.tabs

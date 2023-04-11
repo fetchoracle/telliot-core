@@ -13,15 +13,15 @@ from telliot_core.utils.timestamp import TimeStamp
 ReadRespType = Tuple[Any, ResponseStatus]
 
 
-class TellorxOracleContract(Contract):
+class FetchxOracleContract(Contract):
     def __init__(self, node: RPCEndpoint, account: Optional[ChainedAccount] = None):
 
         chain_id = node.chain_id
         assert chain_id is not None
 
-        contract_info = contract_directory.find(chain_id=chain_id, name="tellorx-oracle")[0]
+        contract_info = contract_directory.find(chain_id=chain_id, name="fetchx-oracle")[0]
         if not contract_info:
-            raise Exception(f"TellorX oracle contract not found on chain_id {chain_id}")
+            raise Exception(f"FetchX oracle contract not found on chain_id {chain_id}")
 
         contract_abi = contract_info.get_abi(chain_id=chain_id)
 
@@ -87,10 +87,10 @@ class TellorxOracleContract(Contract):
     async def getTimeBasedReward(self) -> Tuple[float, ResponseStatus]:
         result, status = await self.read("getTimeBasedReward")
         if status.ok:
-            trb_reward = float(result) / 1.0e18
+            fetch_reward = float(result) / 1.0e18
         else:
-            trb_reward = float(0)
-        return trb_reward, status
+            fetch_reward = float(0)
+        return fetch_reward, status
 
     async def getTimestampCountById(self, queryId: str) -> ReadRespType:
 

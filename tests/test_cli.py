@@ -55,7 +55,7 @@ def test_gettimebasedreward():
     """Test contract method"""
     runner = CliRunner()
     result = runner.invoke(main, ["--test_config", "read", "gettimebasedreward"])
-    assert "TRB" in result.output
+    assert "FETCH" in result.output
 
 
 def test_config_show():

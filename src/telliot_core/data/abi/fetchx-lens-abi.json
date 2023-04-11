@@ -269,7 +269,7 @@
   },
   {
     "inputs": [],
-    "name": "tellorContract",
+    "name": "fetchContract",
     "outputs": [
       {
         "internalType": "address",

@@ -7,7 +7,7 @@
 
 Clone the repository to a local working directory:
 
-    git clone https://github.com/tellor-io/telliot-core.git
+    git clone https://github.com/fetch-io/telliot-core.git
 
 Create and activate a [virtual environment](https://docs.python.org/3/library/venv.html) in that cloned repo. In this example, the virtual environment is called `tenv`:
 
@@ -32,7 +32,7 @@ Install the project using using an [editable installation](https://pip.pypa.io/e
 
 ## Test Environment
 
-Make sure you've [configured Telliot](https://tellor-io.github.io/telliot-feed-examples/getting-started/) before continuing.
+Make sure you've [configured Telliot](https://fetch-io.github.io/telliot-feed-examples/getting-started/) before continuing.
 
 Verify the development environment by running `pytest` and ensure that all tests pass.
 

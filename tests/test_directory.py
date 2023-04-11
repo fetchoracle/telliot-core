@@ -9,13 +9,13 @@ from telliot_core.directory import ContractInfo
 def test_contract_info():
     """Test the ContractInfo class"""
     c = ContractInfo(
-        org="tellor",
-        name="tellorx-master",
+        org="fetch",
+        name="fetchx-master",
         address={
             1: "0x88dF592F8eb5D7Bd38bFeF7dEb0fBc02cf3778a0",
             4: "0x88dF592F8eb5D7Bd38bFeF7dEb0fBc02cf3778a0",
         },
-        abi_file="tellorx-master-abi.json",
+        abi_file="fetchx-master-abi.json",
     )
 
     # Make sure we can get ABI
@@ -27,14 +27,14 @@ def test_contract_directory():
     cd = contract_directory
     assert len(cd.entries) > 6
 
-    master = cd.find(name="tellorx-master")[0]
+    master = cd.find(name="fetchx-master")[0]
     assert isinstance(master.get_abi(), list)
 
     treasury = cd.find(address="0x2dB91443f2b562B8b2B2e8E4fC0A3EDD6c195147")[0]
     assert isinstance(treasury.get_abi(0), list)
 
-    tellorx = cd.find(name="tellorx")
-    assert len(tellorx) == 5
+    fetchx = cd.find(name="fetchx")
+    assert len(fetchx) == 5
 
     mainnet_contracts = cd.find(chain_id=1)
     assert isinstance(mainnet_contracts[0], ContractInfo)
@@ -50,11 +50,11 @@ def test_directory_config_file():
 def test_abi_mainnet_retrieval():
     """Test the ABI retrieval from mainnet"""
     cd = contract_directory
-    entries = cd.find(name="tellor-provider-id41", chain_id=1)
+    entries = cd.find(name="fetch-provider-id41", chain_id=1)
     info = entries[0]
     print(info)
     abi = info.get_abi(chain_id=1)
-    assert abi[0]["name"] == "tellorReport"
+    assert abi[0]["name"] == "fetchReport"
 
 
 @pytest.mark.skip("Long test")

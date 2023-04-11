@@ -55,6 +55,7 @@ CHIADO_GAS_PRICE_API = "https://blockscout.com/xdai/mainnet/api/v1/gas-price-ora
 GNOSIS_GAS_PRICE_API = "https://blockscout.com/xdai/mainnet/api/v1/gas-price-oracle"
 OPTIMISM_GAS_PRICE_API = "https://api.owlracle.info/v3/opt/gas"
 ARBITRUM_GAS_PRICE_API = "https://api.owlracle.info/v3/arb/gas"
+# PULSE_GAS_PRICE_API = ""
 
 gas_station = {
     1: GasStation(api=ETH_GAS_PRICE_API, parse_rsp=["fast"]),
@@ -67,6 +68,7 @@ gas_station = {
     80001: GasStation(api=MATIC_GAS_PRICE_API, parse_rsp=["safeLow"]),
     10200: GasStation(api=CHIADO_GAS_PRICE_API, parse_rsp=["average"]),
     100: GasStation(api=GNOSIS_GAS_PRICE_API, parse_rsp=["average"]),
+    # 942: GasStation(api=PULSE_GAS_PRICE_API, )
 }
 
 

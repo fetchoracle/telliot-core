@@ -21,7 +21,7 @@ def test_homedir():
     assert isinstance(hd, pathlib.Path)
     assert hd.exists()
 
-
+@pytest.mark.skip(reason="no way of currently testing external chain dependent tests")
 @pytest.mark.asyncio
 async def test_application_homedir(mumbai_test_cfg):
     """Test home directory handling"""
@@ -34,7 +34,7 @@ async def test_application_homedir(mumbai_test_cfg):
 
     shutil.rmtree(testhome)
 
-
+@pytest.mark.skip(reason="no way of currently testing external chain dependent tests")
 @pytest.mark.asyncio
 async def test_application_default_home(mumbai_test_cfg):
     """Test default application directory"""
@@ -43,7 +43,7 @@ async def test_application_default_home(mumbai_test_cfg):
         assert app.homedir == default_homedir()
         assert "telliot" in str(app.homedir)
 
-
+@pytest.mark.skip(reason="no way of currently testing external chain dependent tests")
 @pytest.mark.asyncio
 async def test_app_constructor(mumbai_test_cfg):
     tmpdir = Path(".tmp")
