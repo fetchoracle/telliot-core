@@ -164,6 +164,13 @@ default_endpoint_list = [
         url="https://rpc.v3.testnet.pulsechain.com",
         explorer="https://scan.v3.testnet.pulsechain.com",
     ),
+    RPCEndpoint(
+        chain_id=943,
+        provider="Pulsechain",
+        network="Pulsechain Testnet",
+        url="https://rpc.v4.testnet.pulsechain.com",
+        explorer="https://scan.v4.testnet.pulsechain.com",
+    ),
     # RPCEndpoint(
     #     chain_id=42161,
     #     provider="Infura",
