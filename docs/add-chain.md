@@ -9,4 +9,4 @@
     - Add address for `fetch360-autopay`.
     - Add address for `fetch360-oracle`.
     - If using testnet, add a fetch playground address for `fetch-token`. If using mainnet, add the address of the bridged FETCH token contract.
-7. Follow steps to support a new chain in [telliot-feeds](https://fetch-io.github.io/telliot-feeds/add-chain/).
+7. Follow steps to support a new chain in [telliot-feeds](https://fetchoracle.github.io/telliot-feeds/add-chain/).
