@@ -88,13 +88,6 @@ default_chain_list = [
     #     currency=EVMCurrency(name="Ether", symbol="ETH", decimals=18),
     # ),
     Chain(
-        chain_id=942,
-        name="PulseChain Testnet-V3",
-        chain="Pulsechain",
-        network="testnet",
-        currency=EVMCurrency(name="Pulsechain tPLS", symbol="tPLS", decimals=18),
-    ),
-    Chain(
         chain_id=943,
         name="PulseChain Testnet-V4",
         chain="Pulsechain",
