@@ -2,14 +2,14 @@ site_name: Telliot Core Documentation
 
 # Project information
 site_name: Telliot Core Documentation
-site_url: https://fetch-io.github.io/telliot-core/
+site_url: https://fetchoracle.github.io/telliot-core/
 site_author: Fetch Development Community
 site_description: >-
   Telliot is a Python framework for interacting with the decentralized FetchX network
 
 # Repository
-repo_name: fetch-io/telliot-core
-repo_url: https://github.com/fetch-io/telliot-core
+repo_name: fetchoracle/telliot-core
+repo_url: https://github.com/fetchoracle/telliot-core
 edit_uri: ""
 
 # Copyright

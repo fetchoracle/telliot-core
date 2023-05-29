@@ -158,13 +158,6 @@ default_endpoint_list = [
     #     explorer="https://rinkeby-explorer.arbitrum.io/#/",
     # ),
     RPCEndpoint(
-        chain_id=942,
-        provider="Pulsechain",
-        network="Pulsechain Testnet",
-        url="https://rpc.v3.testnet.pulsechain.com",
-        explorer="https://scan.v3.testnet.pulsechain.com",
-    ),
-    RPCEndpoint(
         chain_id=943,
         provider="Pulsechain",
         network="Pulsechain Testnet",

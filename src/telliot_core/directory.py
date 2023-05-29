@@ -69,8 +69,6 @@ class ContractInfo(Serializable):
                     url = "https://api.gnosisscan.io"
                 elif chain_id == 10:
                     url = "https://optimistic.etherscan.io/"
-                elif chain_id == 942:
-                    url = "https://scan.v3.testnet.pulsechain.com"
                 elif chain_id == 943:
                     url = "https://scan.v4.testnet.pulsechain.com"
                 else:
