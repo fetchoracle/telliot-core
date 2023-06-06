@@ -43,6 +43,7 @@ NETWORKS = {
     421613: "arbitrum-goerli",
     942: "PulseChain Testnet-V3",
     943: "PulseChain Testnet-V4",
+    369: "Pulsechain Mainnet",
     42161: "arbitrum",
     1337: "brownie-local-network",
     10200: "chiado-testnet",
