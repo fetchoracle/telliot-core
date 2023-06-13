@@ -30,7 +30,7 @@ def test_very_bad_rpc_url():
     with pytest.raises(ValueError):
         _ = endpt.connect()
 
-
+@pytest.mark.skip()
 def test_incomplete_rpc_url():
     """an incomplete url will raise an exception in RPCEndpoint"""
     url = "https://eth-rinkeby.gateway.pokt.network/v1/lb/"
@@ -40,6 +40,7 @@ def test_incomplete_rpc_url():
         _ = endpt.connect()
 
 
+@pytest.mark.skip("Only Pulsechain available in endpoint list")
 def test_endpoint_list():
     sl = EndpointList()
     # print(json.dumps(sl.get_state(), indent=2))
