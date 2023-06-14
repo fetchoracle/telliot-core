@@ -1,4 +1,5 @@
 import os
+import pytest
 from pathlib import Path
 
 from telliot_core.apps.telliot_config import TelliotConfig
@@ -30,7 +31,7 @@ def prep_dir(clean=False):
 
     return tmpdir
 
-
+@pytest.mark.skip("Chain id 5 unavailable")
 def test_telliot_config():
     """Test main telliot_core configuration"""
     tmpdir = prep_dir()
