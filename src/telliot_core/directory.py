@@ -12,6 +12,10 @@ from clamfig import Serializable
 from telliot_core.apps.config import ConfigOptions
 from telliot_core.utils.home import TELLIOT_CORE_ROOT
 
+import os
+from dotenv import load_dotenv
+
+load_dotenv()
 
 # Read contract ABIs from json files
 _abi_folder = Path(__file__).resolve().parent / "data" / "abi"
@@ -155,5 +159,16 @@ class ContractDirectory(ConfigOptions):
 
         return result
 
+contract_directory_files = {
+    "default": TELLIOT_CORE_ROOT / "data/contract_directory.json",
+    "dev": TELLIOT_CORE_ROOT / "data/contract_directory.dev.json",
+    "testnet": TELLIOT_CORE_ROOT / "data/contract_directory.testnet.json",
+    "mainnet": TELLIOT_CORE_ROOT / "data/contract_directory.mainnet.json",
+    "preprod": TELLIOT_CORE_ROOT / "data/contract_directory.preprod.json",
+    "staging": TELLIOT_CORE_ROOT / "data/contract_directory.staging.json",
+}
 
-contract_directory = ContractDirectory.from_file(TELLIOT_CORE_ROOT / "data/contract_directory.json")
+contract_directory_file = contract_directory_files[os.getenv("ENV_NAME", "default")]
+
+print(f"Loading contract directory from {contract_directory_file}")
+contract_directory = ContractDirectory.from_file(contract_directory_file)
