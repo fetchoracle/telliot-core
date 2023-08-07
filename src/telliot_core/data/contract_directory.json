@@ -73,7 +73,7 @@
       "1666600000": "0xb32e05DF1f11B1f0E1DE2A35F4D99393EB86FF8B",
       "1666700000": "0xbB97C038c338c3DcAF06D5be3B4A3e0B24835f9C"
     },
-    "abi_file": "fetchflex-oracle-abi.json" 
+    "abi_file": "fetchflex-oracle-abi.json"
   },
   {
     "type": "ContractInfo",
@@ -160,6 +160,15 @@
       "1666700000": "0x7B8AC044ebce66aCdF14197E8De38C1Cc802dB4A"
     },
     "abi_file": "fetch-token-abi.json"
+  },
+  {
+    "type": "ContractInfo",
+    "name": "fetch-governance",
+    "org": "fetch",
+    "address": {
+      "943": "0x9Bf22Fa8C49ef7F9B9a343A39baE002C2f800802"
+    },
+    "abi_file": "fetch-governance-abi.json"
   },
   {
     "type": "ContractInfo",
