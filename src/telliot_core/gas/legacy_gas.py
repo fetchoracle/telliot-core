@@ -77,6 +77,7 @@ async def legacy_gas_station(
 ) -> Optional[int]:
     """Fetch gas price from gas station Api in gwei"""
 
+    prices = {}
     if chain_id not in gas_station:
         logger.error(f"Please add gas station API for chain id: {chain_id}")
         return None
