@@ -10,6 +10,13 @@ to the link displayed:
 
     mkdocs serve
 
+## Use the stable environment
+
+Please switch to the stable environment by using the production-ready branch for Telliot:
+```sh
+git checkout main
+```
+
 ## Documentation Reference
 
 Portions of the documentation are auto-generated from Python docstrings using:
