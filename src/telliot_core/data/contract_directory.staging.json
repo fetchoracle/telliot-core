@@ -160,6 +160,15 @@
   },
   {
     "type": "ContractInfo",
+    "name": "fetch-governance",
+    "org": "fetch",
+    "address": {
+      "943": "0x3ee2Bc85eF1a28855857C88498eb4D281b1864e4"
+    },
+    "abi_file": "fetch-governance-abi.json"
+  },
+  {
+    "type": "ContractInfo",
     "name": "fetch-lens",
     "org": "fetch",
     "address": {
