@@ -163,7 +163,7 @@
     "name": "fetch-governance",
     "org": "fetch",
     "address": {
-      "943": "null"
+      "943": "0x4F90157AdFbcCd32b82c15584981abB1548596e5"
     },
     "abi_file": "fetch-governance-abi.json"
   },
