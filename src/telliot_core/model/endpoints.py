@@ -162,14 +162,14 @@ default_endpoint_list = [
         provider="Pulsechain",
         network="Pulsechain Testnet",
         url="https://rpc.v4.testnet.pulsechain.com",
-        explorer="https://scan.v4.testnet.pulsechain.com",
+        explorer="https://scan.v4.testnet.pulsechain.com/",
     ),
     RPCEndpoint(
         chain_id=369,
         provider="Pulsechain",
         network="Pulsechain Mainnet",
         url="https://rpc.pulsechain.com",
-        explorer="https://scan.pulsechain.com",
+        explorer="https://scan.pulsechain.com/",
     ),
     # RPCEndpoint(
     #     chain_id=42161,
