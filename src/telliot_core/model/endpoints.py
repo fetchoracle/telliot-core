@@ -17,7 +17,8 @@ from telliot_core.model.base import Base
 
 import os
 
-pls_rpc_url = os.environ.get("LP_PULSE_NETWORK_URL")
+pls_testnet_rpc_url = os.environ.get("PULSE_TESTNET_RPC_URL", "https://rpc.v4.testnet.pulsechain.com")
+pls_mainnet_rpc_url = os.environ.get("PULSE_MAINNET_RPC_URL", "https://rpc.pulsechain.com")
 
 logger = logging.getLogger(__name__)
 
@@ -165,14 +166,14 @@ default_endpoint_list = [
         chain_id=943,
         provider="Pulsechain",
         network="Pulsechain Testnet",
-        url=pls_rpc_url,
+        url=pls_testnet_rpc_url,
         explorer="https://scan.v4.testnet.pulsechain.com/",
     ),
     RPCEndpoint(
         chain_id=369,
         provider="Pulsechain",
         network="Pulsechain Mainnet",
-        url=pls_rpc_url,
+        url=pls_mainnet_rpc_url,
         explorer="https://scan.pulsechain.com/",
     ),
     # RPCEndpoint(
