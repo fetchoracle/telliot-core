@@ -14,6 +14,9 @@ from web3.middleware import geth_poa_middleware
 from telliot_core.apps.config import ConfigFile
 from telliot_core.apps.config import ConfigOptions
 from telliot_core.model.base import Base
+from dotenv import load_dotenv
+
+load_dotenv()
 
 import os
 
