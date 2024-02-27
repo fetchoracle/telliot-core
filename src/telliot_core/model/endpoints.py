@@ -59,7 +59,7 @@ class RPCEndpoint(Base):
             True if connection was successful
         """
 
-        if self._web3:
+        if self._web3 and self._web3.isConnected():
             return True
 
         if self.url.startswith("ws"):
@@ -73,13 +73,16 @@ class RPCEndpoint(Base):
         if self.chain_id == 4:
             self.web3.middleware_onion.inject(geth_poa_middleware, layer=0)
 
-        connected = False
+        connected = self._web3.isConnected()
         try:
-            connected = self._web3.eth.get_block_number() > 1
-            logger.debug("Connected to {}".format(self))
-
+            if connected:
+                connected = self._web3.eth.get_block_number() > 1
+                logger.debug("Connected to {}".format(self))
+            else:
+                self._web3 = None    
         except Exception as e:
             connected = False
+            self._web3 = None
             msg = f"Could not connect to RPC endpoint at: {self.url}"
             logger.error(e)
             logger.error(msg)
