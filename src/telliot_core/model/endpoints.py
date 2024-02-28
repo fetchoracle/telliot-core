@@ -22,6 +22,7 @@ import os
 
 pls_testnet_rpc_url = os.environ.get("PULSE_TESTNET_RPC_URL", "https://rpc.v4.testnet.pulsechain.com")
 pls_mainnet_rpc_url = os.environ.get("PULSE_MAINNET_RPC_URL", "https://rpc.pulsechain.com")
+pls_mainnet_rpc_failover_url = os.environ.get("PULSE_MAINNET_RPC_FAILOVER_URL", "https://rpc-pulsechain.g4mm4.io")
 
 logger = logging.getLogger(__name__)
 
@@ -182,6 +183,13 @@ default_endpoint_list = [
         url=pls_mainnet_rpc_url,
         explorer="https://scan.pulsechain.com/",
     ),
+    RPCEndpoint(
+        chain_id=369,
+        provider="Pulsechain",
+        network="Pulsechain Mainnet Failover Endpoint",
+        url=pls_mainnet_rpc_failover_url,
+        explorer="https://scan.pulsechain.com/",
+    )
     # RPCEndpoint(
     #     chain_id=42161,
     #     provider="Infura",
