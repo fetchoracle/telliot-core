@@ -185,11 +185,20 @@ class TelliotCore:
     @property
     def endpoint(self) -> RPCEndpoint:
         """Get or create the endpoint for the current configuration"""
+        if self._endpoint:
+            is_connected = self._endpoint._web3.isConnected()
+            if not is_connected: self._endpoint = None
         if not self._endpoint:
             self._endpoint = self.get_endpoint()
             connected = self._endpoint.connect()
             if not connected:
+                self.log.error(f"Could not connect to RPC endpoint at: {self._endpoint.url}, trying RPC failover")
+                self._endpoint = self.get_endpoint(get_failover=True)
+                connected = self._endpoint.connect()
+            if not connected:
                 raise Exception(f"Could not connect to endpoint: {self._endpoint.url}")
+        
+            self.log.info(f"Connected to {self._endpoint.url}")
 
         return self._endpoint
 
@@ -255,6 +264,7 @@ class TelliotCore:
         *,
         chain_id: Optional[int] = None,
         provider: Optional[str] = None,
+        get_failover: bool = False,
     ) -> RPCEndpoint:
 
         if not chain_id:
@@ -263,6 +273,8 @@ class TelliotCore:
         endpoints = self.config.endpoints.find(chain_id=chain_id, provider=provider)
         if len(endpoints) == 0:
             raise Exception("No endpoints found")
+        if len(endpoints) >= 2 and get_failover:
+            return endpoints[1]
 
         return endpoints[0]  # type: ignore
 
