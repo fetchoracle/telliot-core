@@ -1,3 +1,5 @@
+[![Test](https://github.com/fetchoracle/telliot-core/actions/workflows/test.yml/badge.svg)]
+
 # Telliot Core
 
 Telliot is a command line tool and software development kit (SDK) for interacting with the [Fetch protocol](https://docs.fetchoracle.com/fetch/whitepaper/introduction).
