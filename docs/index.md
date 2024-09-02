@@ -1,1 +1,0 @@
-DOCUMENTATION for general Fetch Protocol client software (telliot) setup, creating new datafeeds, adding spot prices, reporting values to oracles, and more has moved [HERE](https://fetchoracle.github.io/telliot-feeds/).
