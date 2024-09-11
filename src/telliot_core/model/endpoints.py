@@ -220,19 +220,19 @@ default_endpoint_list = [
         url="https://sepolia.infura.io/v3/{INFURA_API_KEY}",
         explorer="https://sepolia.etherscan.io/",
     ),
-    RPCEndpoint(
-        chain_id=369,
-        provider="PulseChain",
-        network="pulsechain",
-        url="https://rpc.pulsechain.com",
-        explorer="https://scan.pulsechain.com/",
-    ),
-    RPCEndpoint(
+   RPCEndpoint(
         chain_id=943,
-        provider="PulseChain Testnet",
-        network="pulsechain-testnet",
+        provider="Pulsechain",
+        network="Pulsechain Testnet",
         url="https://rpc.v4.testnet.pulsechain.com",
         explorer="https://scan.v4.testnet.pulsechain.com/",
+    ),
+    RPCEndpoint(
+        chain_id=369,
+        provider="Pulsechain",
+        network="Pulsechain Mainnet",
+        url="https://rpc.pulsechain.com",
+        explorer="https://scan.pulsechain.com/",
     ),
     RPCEndpoint(
         chain_id=3441005,
