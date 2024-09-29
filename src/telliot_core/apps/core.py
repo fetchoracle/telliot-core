@@ -81,6 +81,8 @@ NETWORKS = {
     2340: "atleta olympia testnet",
     842: "taraxa testnet",
     808813: "taraxa testnet",
+    534352: "scroll",
+    8453: "base",
 }
 
 LOGLEVEL_MAP = {
