@@ -12,7 +12,7 @@ def default_homedir() -> pathlib.Path:
     Returns:
         pathlib.Path : Path to home directory
     """
-    homedir = Path.home() / ("telliot")
+    homedir = Path.home() / ("telliot-alt")
     homedir = homedir.resolve().absolute()
     if not homedir.is_dir():
         homedir.mkdir()
