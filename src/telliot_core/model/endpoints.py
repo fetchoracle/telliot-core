@@ -225,15 +225,15 @@ default_endpoint_list = [
         provider="Pulsechain",
         network="Pulsechain Testnet",
         url="https://rpc.v4.testnet.pulsechain.com",
-        explorer="https://scan.v4.testnet.pulsechain.com/",
+        explorer="https://otter-testnet-pulsechain.g4mm4.io",
     ),
-    # RPCEndpoint(
-    #     chain_id=369,
-    #     provider="Pulsechain",
-    #     network="Pulsechain Mainnet",
-    #     url="https://rpc.pulsechain.com",
-    #     explorer="https://scan.pulsechain.com/",
-    # ),
+     RPCEndpoint(
+         chain_id=369,
+         provider="Pulsechain",
+         network="Pulsechain Mainnet",
+         url="https://rpc.pulsechain.com",
+         explorer="https://otter.pulsechain.com",
+     ),
     # RPCEndpoint(
     #     chain_id=3441005,
     #     provider="caldera",
