@@ -1,15 +1,12 @@
-![CI](https://github.com/tellor-io/pytelliot/actions/workflows/py39.yml/badge.svg)
-![Docs](https://github.com/tellor-io/pytelliot/actions/workflows/docs.yml/badge.svg)
-[![codecov](https://codecov.io/gh/tellor-io/pytelliot/branch/main/graph/badge.svg?token=S1199HQ2EK)](https://codecov.io/gh/tellor-io/pytelliot)
-[![Discord Chat](https://img.shields.io/discord/461602746336935936)](https://discord.com/invite/n7drGjh)
-[![Twitter Follow](https://img.shields.io/twitter/follow/wearetellor?style=social)](https://twitter.com/WeAreTellor)
+
+[![Telegram Chat](https://img.shields.io/badge/telegram-❤️-252850?style=plastic&logo=telegram)](https://t.me/fetchoracle)
+[![Twitter Follow](https://img.shields.io/twitter/follow/fetchoracle?style=social)](https://x.com/fetchoracle)
 
 # Telliot Core
 
-Telliot is a command line tool and software development kit (SDK) for interacting with the [Tellor protocol](https://docs.tellor.io/tellor/whitepaper/introduction).
+Telliot is a command line tool and software development kit (SDK) for interacting with the [Fetch Oracle protocol](https://www.fetchoracle.com/).
 
-- [Documentation](https://tellor-io.github.io/telliot-core/)
-- [Contributing](https://tellor-io.github.io/telliot-core/contributing/)
+- [Documentation](https://docs.fetchoracle.com/)
 
 To become a Tellor reporter, begin by installing the
-[telliot-feeds](https://github.com/tellor-io/telliot-feeds) package.
+[telliot-feeds](https://github.com/fetchoracle/telliot-feeds) package.
