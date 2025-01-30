@@ -93,10 +93,9 @@ class TelliotConfig(Base):
             raise ValueError(f"Endpoint not found for chain_id={self.main.chain_id}")
             
     def get_endpoint_token_alerts(self, network_id: str) -> RPCEndpoint:
-        """Search endpoints for .env NETWORK_ID to fetch token balance alerts"""
+        """Search endpoints from .env NETWORK_ID only"""
         eps = self.endpoints.find(chain_id=network_id)
         if len(eps) > 0:
-            print(f"endpoint for token balance alert:{eps}")
             return eps[0]
         else:
             raise ValueError(f"Endpoint not found for chain_id={network_id}")
