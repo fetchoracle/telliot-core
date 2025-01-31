@@ -91,6 +91,14 @@ class TelliotConfig(Base):
             return eps[0]
         else:
             raise ValueError(f"Endpoint not found for chain_id={self.main.chain_id}")
+            
+    def get_endpoint_token_alerts(self, network_id: str) -> RPCEndpoint:
+        """Search endpoints from .env NETWORK_ID only"""
+        eps = self.endpoints.find(chain_id=network_id)
+        if len(eps) > 0:
+            return eps[0]
+        else:
+            raise ValueError(f"Endpoint not found for chain_id={network_id}")
 
 
 def override_test_config(cfg: TelliotConfig, write: bool = False) -> TelliotConfig:
